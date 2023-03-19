@@ -1,0 +1,132 @@
+.back {
+  max-height: 100vh;
+
+  width: 100%;
+  max-width: 100vw;
+  background-color: var(--primaryColorDarker);
+  border-left: none;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  height: 100vh;
+  overflow: hidden;
+}
+
+.manage__article {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  padding: 5rem 0;
+  max-height: calc(100vh - 6rem);
+}
+
+.manage__article:nth-of-type(2) {
+  border-left: solid 1px var(--primaryColorLight);
+}
+
+.manage__article__title {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem .5rem;
+  text-align: center;
+  border-bottom: solid 1px var(--primaryColorLight);
+}
+
+.dosTypes__form {
+  margin-bottom: 4rem;
+}
+
+.dosTypes__list {
+  overflow: scroll;
+}
+
+.dosTypes__list__item {
+  font-size: 2.2rem;
+  font-weight: bold;
+  width: 40rem;
+  padding: 0 2rem .5rem;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px var(--primaryColorLight);
+  word-break: break-all;
+  hyphens: auto;
+
+  display: flex;
+  align-items: center;
+}
+
+.dosTypes__list__delete {
+  min-width: 4rem;
+  min-height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(254, 63, 63);
+  border-radius: .5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all .3s ease;
+
+  margin-left: 2rem;
+}
+
+.dosTypes__list__delete:hover {
+  background-color: rgb(180, 46, 46);
+  text-shadow: 0rem 0rem .8rem rgba(255, 255, 255, 0.85);
+}
+
+.dosTypes__list__delete:active {
+  background-color: rgb(111, 28, 28);
+}
+
+.dosTypes__form__submit {
+  margin-left: 1rem;
+}
+
+.personal__form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.personal__form__label{
+  margin-top: 1rem;
+}
+
+.personal__form__label input {
+  margin-top: .5rem;
+}
+
+.personal__form__submit {
+  margin-top: 2rem;
+}
+
+.dosTypes__form__submit, 
+.personal__form__submit {
+  background-color: var(--primaryColorLight);
+  color: black;
+  font-weight: bold;
+  padding: .5rem 1rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.dosTypes__form__submit:hover, 
+.personal__form__submit:hover {
+  background-color: var(--primaryColorTransparent);
+  color: white;
+}
+
+.eye {
+  height: 30px;
+  width: 20px;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  position: absolute;
+}

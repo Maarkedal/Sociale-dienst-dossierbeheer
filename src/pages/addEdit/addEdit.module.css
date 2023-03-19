@@ -1,0 +1,270 @@
+.background {
+    height: 100%;
+    max-height: calc(100vh - 12rem);
+    overflow: scroll;
+    background-color: var(--primaryColor);
+
+    flex-flow: column;
+    flex-grow: 1;
+
+    border: solid 1px var(--primaryColorLight);
+    border-radius: 1rem;
+
+    margin: 4rem;
+    padding: 2rem;
+}
+
+.return {
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+
+    height: 100%;
+    max-height: inherit;
+    padding-bottom: 2rem;
+}
+
+.form label {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+
+    margin-top: 1rem;
+}
+
+.form input, .form select {
+    margin-top: .5rem;
+    max-width: 30rem;
+}
+
+.form textarea {
+    margin-top: .5rem;
+    max-width: 40rem;
+    min-height: 15rem;
+}
+
+.tijdlijn {
+    display: flex;
+    gap: 2rem;
+    flex-flow: row wrap;
+    margin: 2rem;
+    padding: 2rem;
+    margin-left: 0;
+    border: solid var(--primaryColorLight) 1px;
+    border-radius: .5rem;
+}
+
+.tijdlijn__item, .addButton {
+    border: solid var(--primaryColorLight) 1px;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.tijdlijn__item {
+    position: relative;
+    min-width: 30rem;
+    flex-grow: 1;
+}
+
+.addButton {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 19.2rem;
+    background-color: var(--primaryColorLight);
+    font-size: 9.2rem;
+    padding: 0;
+    color: rgb(82, 82, 82);
+    transition: all .3s ease;
+    cursor: pointer;
+    width: 30rem;
+    min-height: 30rem;
+    flex-grow: 1;
+}
+
+.addButton:hover {
+    border-color: var(--primaryColorLightTransparent);
+    background-color: var(--primaryColorLightTransparent);
+}
+
+.delete {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+
+    background-color: rgb(242, 88, 53);
+    padding: .5rem .7rem;
+
+    border-top: solid 1px var(--primaryColorLight);
+    border-right: solid 1px var(--primaryColorLight);
+    border-top-right-radius: .4rem;
+
+    cursor: pointer;
+}
+
+.save {
+    background-color: var(--primaryColorLight);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: black;
+    user-select: none;
+    cursor: pointer;
+
+    transition: background-color .3s ease;
+
+    margin-bottom: 2rem;
+}
+
+.save:hover {
+    background-color: var(--primaryColorLightTransparent);
+}
+
+.formResponse {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.476);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 90;
+}
+
+.formResponse__wrapper {
+    background-color: var(--primaryColor);
+    border: solid 2px var(--primaryColorLightTransparent);
+
+    width: 50rem;
+    height: 30rem;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+.formResponse__message {
+    font-weight: bold;
+    font-size: 2.6rem;
+    line-height: 2.6rem;
+}
+
+.formResponse__buttonWrapper {
+
+    display: flex;
+
+}
+
+.formResponse__button {
+    cursor: pointer;
+
+    background-color: black;
+    height: 5rem;
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 1rem;
+    border-radius: .5rem;
+    font-weight: bold;
+}
+
+.clientWrap {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.clientWrap h2 {
+    width: 100%;
+}
+
+.clientWrap label {
+    max-width: 25rem;
+}
+
+
+.infoBlock__wrap {
+    display: flex;
+    flex-flow: wrap;
+    gap: 2rem;
+    padding: 2rem 0;
+    padding-bottom: 2rem;
+}
+
+
+.dossierTypes__list {
+    padding: 1rem;
+    border: solid 1px var(--primaryColorLight);
+    border-radius: 1rem;
+    width: 30rem;
+    position: relative;
+}
+
+.dossierTypes__list__title {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.dossierTypes__list__content {
+    margin-bottom: .8rem;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+    padding-bottom: .2rem;
+    word-break: break-all;
+}
+
+.dossierTypes__list__content:last-of-type {
+    border-bottom: none;
+}
+
+.dossierTypes__list__content textarea{
+    width: calc(100% - .5rem);
+    height: 15rem !important;
+}
+
+.dossierTypes__list__select {
+    border-radius: .3rem;
+    padding: .5rem 1rem;
+    width: 100%;
+}
+
+.dossierTypes__list:last-of-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem !important;
+
+
+}
+
+.dossierTypes__list:last-of-type p{
+    font-size: 1.8rem;
+}
+
+.spacer {
+    height: 1rem;
+    width: 20rem;
+    position: relative;
+    display: block;
+    padding: .5rem;
+}

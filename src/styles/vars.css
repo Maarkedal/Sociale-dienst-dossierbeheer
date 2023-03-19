@@ -1,0 +1,13 @@
+:root {
+    --primaryColor: #00AAC6;
+    --primaryColorDarker: #0197ae;
+    --primaryColorLight: #B0E4ED;
+    --primaryColorLightTransparent: #b0e4ed8b;
+    --primaryColorTransparent: #00abc6a4;
+    --darkPrimaryColor: #00505c;
+    --lightColor: rgb(245, 245, 245);
+    --textColor: white;
+    --primaryFontColor: black;
+    --primaryTableColor: rgb(159, 159, 159);
+    --tableColor: #494949;
+}

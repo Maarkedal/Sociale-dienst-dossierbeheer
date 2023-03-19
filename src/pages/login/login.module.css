@@ -1,0 +1,63 @@
+.back {
+    width: 100%;
+    background-color: var(--primaryColor);
+    padding: 2rem;
+    border: solid 1px black;
+    min-height: 92vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.error {
+    max-width: 25rem;
+    margin: .5rem;
+}
+
+.label {
+    font-weight: bold;
+    max-width: 25rem;
+    font-size: 2.2rem;
+    display: flex;
+    flex-flow: column;
+    width: 33rem;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.label input {
+    margin-top: .5rem;
+    font-size: 2.2rem;
+}
+
+.submitButton {
+    margin: 1rem;
+    background-color: var(--primaryColorDarker);
+    cursor: pointer;
+    display: inline;
+    padding: 1rem;
+    color: white;
+    border-radius: .5rem;
+
+    max-width: 22rem;
+    width: 100%;
+    text-align: center;
+    transition: background-color .3s ease;
+}
+
+.submitButton:hover {
+    background-color: #007d90;
+}
+
+.eye {
+    height: 30px;
+    width: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: -3rem;
+    bottom: 0.3rem;
+
+  }
