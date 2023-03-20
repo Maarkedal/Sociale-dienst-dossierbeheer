@@ -1,6 +1,6 @@
 {
   "name": "socialedienst-dossierbeheer",
-  "version": "0.1.3",
+  "version": "0.0.5",
   "private": true,
   "homepage": "./",
   "main": "public/electron/main.tsx",
@@ -73,8 +73,8 @@
     "wait-on": "^6.0.1"
   },
   "build": {
-    "productName": "Subsidies tracker",
-    "copyright": "Copyright © 2022 MiguelDP",
+    "productName": "Sociale dienst dossierbeheer",
+    "copyright": "Copyright © 2023 MiguelDP",
     "appId": "com.migueldp.sdstructuur-tracker",
     "files": [
       "build/**/*",

@@ -191,7 +191,6 @@ const RootStoreProvider = ({ children }) => {
             .then(async value => await decrypt(value))
             .then(async value => await JSON.parse(value));
             
-            console.log('testing1')
         if(result.id) {
             let newObject = object;
             newObject.id = result.id;
