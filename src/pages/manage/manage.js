@@ -1,4 +1,5 @@
 import { createRef, useEffect, useState } from "react";
+import { v4 } from "uuid";
 import { useRootContext } from "../../contexts/RootStoreProvider";
 import style from "./manage.module.css";
 
@@ -65,14 +66,19 @@ const Manage = () => {
         
         e.preventDefault();
 
+        console.log(passwordForm.passwordConfirm)
+        console.log(passwordForm.password)
         if(passwordForm.password === passwordForm.passwordConfirm) {
-            const res = resetPassword({
+            const res = await resetPassword({
                 password: passwordForm.password,
-                mail: user.mail
+                mail: user.mail,
+                salt: v4()
             })
             
-            if(!res.message)alert('De wachtwoorden komen niet overeen')
-        }
+            console.log(res)
+            if(!res.message)alert('Er is een fout opgetreden')
+            else alert('Uw wachtwoord is veranderd')
+        }else alert('De wachtwoorden komen niet overeen')
         
 
     }
@@ -148,7 +154,7 @@ const Manage = () => {
                                 </span>
                             </label>
 
-                            <button className={style.personal__form__submit} onClick={changePassword} type={"submit"} value="Wachtwoord veranderen" />
+                            <button className={style.personal__form__submit} onClick={changePassword} type={"submit"} value="Wachtwoord veranderen">Wachtwoord veranderen</button>
                         </form>
 
                     </article>
