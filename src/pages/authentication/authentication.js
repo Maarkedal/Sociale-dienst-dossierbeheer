@@ -22,12 +22,10 @@ const Authentication = () => {
         setFirstBoot(true)}
    })
 
+   console.log(user)
+
     return (
         <div className={`${style.wrap}`}>
-            <Router>
-
-                
-
                 <nav className={style.navList}>
                     <div className={style.login}>
 
@@ -55,16 +53,19 @@ const Authentication = () => {
                 </nav>
 
                 <Routes>
+                    {console.log('before loggedin')}
                     {!user.loggedIn ?
-                        <Route path="*" element={<Login />} /> :
+                            <Route path="*" element={<Login />} /> :
                         <>
-                            <Route path={ROUTES.home} element={<Home/>}></Route>
-                            <Route path={ROUTES.detail.path} element={<Detail />}></Route>
-                            <Route path={ROUTES.addEdit.path} element={<AddEdit />}> </Route>
-                            <Route path={ROUTES.manage} element={<Manage />}> </Route>
+                        
+                            {console.log('after loggedin')}
+                            <Route path={ROUTES.home} element={<Home />}/>
+                            <Route path={ROUTES.detail.path} element={<Detail />}/>
+                            <Route path={ROUTES.addEdit.path} element={<AddEdit />}/>
+                            <Route exact path={ROUTES.manage} element={<Manage />}/>
                             
                             {user.role === 'admin' ? 
-                                <Route path={ROUTES.admin} element={<Admin />}> </Route>
+                                <Route exact path={ROUTES.admin} element={<Admin />}/>
                                 :
                                 ''
                             }
@@ -73,7 +74,6 @@ const Authentication = () => {
                         </>
                     }
                 </Routes>
-            </Router>
 
         </div>
     );

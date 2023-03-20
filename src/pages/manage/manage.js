@@ -4,10 +4,14 @@ import style from "./manage.module.css";
 
 const Manage = () => {
 
-    const { globalData, dossierTypes, getData, postDostypeData, deleteDossierTypes} = useRootContext();
+    const { globalData, dossierTypes, getData, postDostypeData, deleteDossierTypes, user, resetPassword} = useRootContext();
     const [dosTypes, setDosTypes] = useState(dossierTypes);
     const [attempts, setAttempts] = useState(0)
     const [formData,setFormData] = useState({})
+    const [passwordForm,setPasswordForm] = useState({
+        password: "",
+        passwordConfirm: ""
+    })
     const refOne = createRef();
     const refTwo = createRef();
 
@@ -24,6 +28,14 @@ const Manage = () => {
     const handleChange = async(e) => {
         setFormData({
           ...formData,
+          [e.target.name]: e.target.value,
+        })
+    };
+
+    
+    const handlePasswordChange = async(e) => {
+        setPasswordForm({
+          ...passwordForm,
           [e.target.name]: e.target.value,
         })
     };
@@ -48,6 +60,22 @@ const Manage = () => {
             setDosTypes([...dossierTypes]);
         }, [dossierTypes]
     )
+
+    const changePassword = async (e) => {
+        
+        e.preventDefault();
+
+        if(passwordForm.password === passwordForm.passwordConfirm) {
+            const res = resetPassword({
+                password: passwordForm.password,
+                mail: user.mail
+            })
+            
+            if(!res.message)alert('De wachtwoorden komen niet overeen')
+        }
+        
+
+    }
 
     return (
         globalData.length === 0 ?
@@ -94,7 +122,7 @@ const Manage = () => {
                             <label  className={style.personal__form__label}>
                                 <p>Nieuw wachtwoord</p>
                                 <span>
-                                    <input autoComplete="on" ref={refOne} type={"password"} name="password" onChange={handleChange}/>
+                                    <input autoComplete="on" ref={refOne} type={"password"} name="password" value={passwordForm.password} onChange={handlePasswordChange}/>
                                     <svg 
                                         onClick={() => {refOne.current.type === "password" ? refOne.current.type = "text" : refOne.current.type = "password"}}
                                         className={style.eye} width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +137,7 @@ const Manage = () => {
                             <label  className={style.personal__form__label}>
                                 <p>Bevestig nieuw wachtwoord</p>
                                 <span>
-                                    <input autoComplete="on" ref={refTwo} type={"password"} name="password2" onChange={handleChange}/>
+                                    <input autoComplete="on" ref={refTwo} type={"password"} name="passwordConfirm" value={passwordForm.passwordConfirm} onChange={handlePasswordChange}/>
                                     <svg 
                                         onClick={() => {refTwo.current.type === "password" ? refTwo.current.type = "text" : refTwo.current.type = "password"}}
                                         className={style.eye} width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +148,7 @@ const Manage = () => {
                                 </span>
                             </label>
 
-                            <input className={style.personal__form__submit} type={"submit"} value="Wachtwoord veranderen" />
+                            <button className={style.personal__form__submit} onClick={changePassword} type={"submit"} value="Wachtwoord veranderen" />
                         </form>
 
                     </article>
