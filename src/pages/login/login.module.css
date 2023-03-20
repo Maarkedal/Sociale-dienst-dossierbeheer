@@ -46,6 +46,7 @@
     width: 100%;
     text-align: center;
     transition: background-color .3s ease;
+    user-select: none;
 }
 
 .submitButton:hover {

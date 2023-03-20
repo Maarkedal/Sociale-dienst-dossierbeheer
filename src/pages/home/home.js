@@ -29,7 +29,8 @@ const Home = () => {
     };
 
     const handleSelectChange = async e => {
-        setFilterData({
+        if(e.currentTarget.value === "")filter()
+        else setFilterData({
             ...filterData,
             dosTypes: {
                 ...filterData.dosTypes,
@@ -44,14 +45,12 @@ const Home = () => {
     const filter = () => {
 
         let tempArray = globalData;
-        
         tempArray = tempArray.filter((el) => {
             let tempStartDate = el["Verloop start"].split('/');
             let tempEndDate = el["Verloop stop"].split('/');
             const dStart = new Date(`${tempStartDate[2]}-${tempStartDate[1]}-${tempStartDate[0]}`);
             const dEnd = new Date(`${tempEndDate[2]}-${tempEndDate[1]}-${tempEndDate[0]}`);
 
-            //ALTER TABLE users ADD CONSTRAINT uniquemail UNIQUE (mail);
             let dosTypesFiltered = Object.keys(filterData.dosTypes).filter((dosType) => { 
                         
                 if(el.Type[dosType]){
@@ -67,7 +66,6 @@ const Home = () => {
              })
 
             if (Object.keys(filterData.dosTypes).length === 0) dosTypesFiltered = [true]
-
             return  el['Beheerder'].toLowerCase().includes(filterData.Beheerder.toLowerCase()) &&
                     el['Meer info'].toLowerCase().includes(filterData.Beschrijving.toLowerCase()) &&
                     el.Client.naam.toLowerCase().includes(filterData.Client.toLowerCase()) &&
