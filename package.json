@@ -1,6 +1,6 @@
 {
   "name": "socialedienst-dossierbeheer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "homepage": "./",
   "main": "public/electron/main.tsx",

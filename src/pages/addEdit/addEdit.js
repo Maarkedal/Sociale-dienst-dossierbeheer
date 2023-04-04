@@ -229,11 +229,12 @@ const AddEdit = () => {
                                 
 
                                 <dt className={style.dossierTypes__list__title}>Start datum</dt>
-                                <dd className={style.dossierTypes__list__content}><input type={"date"} value={!isNaN(dostypes[el][dosInfo].startDatum) ? new Date(parseInt(dostypes[el][dosInfo].startDatum)+3600000).toISOString().split('T')[0] : ""} name="startDatum" onChange={(e) => handleDostype(el, dosInfo, e)}/></dd>
+                                <dd className={style.dossierTypes__list__content}><input type={"date"} value={dostypes[el][dosInfo].startDatum === null ? '' : !isNaN(dostypes[el][dosInfo].startDatum) ? new Date(parseInt(dostypes[el][dosInfo].startDatum)+3600000).toISOString().split('T')[0] : ""} name="startDatum" onChange={(e) => handleDostype(el, dosInfo, e)}/></dd>
 
 
                                 <dt className={style.dossierTypes__list__title}>Eind datum</dt>
-                                <dd className={style.dossierTypes__list__content}><input type={"date"} value={!isNaN(dostypes[el][dosInfo].eindDatum) ? new Date(parseInt(dostypes[el][dosInfo].eindDatum)+3600000).toISOString().split('T')[0] : ""} name="eindDatum" onChange={(e) => handleDostype(el, dosInfo, e)}/></dd>
+                                {console.log(dostypes[el][dosInfo].eindDatum)}
+                                <dd className={style.dossierTypes__list__content}><input type={"date"} value={dostypes[el][dosInfo].eindDatum === null ? '' : !isNaN(dostypes[el][dosInfo].eindDatum) ? new Date(parseInt(dostypes[el][dosInfo].eindDatum)+3600000).toISOString().split('T')[0] : ""} name="eindDatum" onChange={(e) => handleDostype(el, dosInfo, e)}/></dd>
 
 
                                 <dt className={style.dossierTypes__list__title}>Opmerkingen</dt>

@@ -105,7 +105,11 @@ const Detail = () => {
             <section className={style.infoBlock}>
                 <h2 className={style.infoBlock__title}>Verloop:</h2>
                 {startStop.lowest ?
-                <p className={style.infoBlock__text}>{new Date(startStop.lowest).toLocaleDateString('en-GB')} <strong>tot</strong> {new Date(startStop.highest).toLocaleDateString('en-GB')}</p>
+                    <p className={style.infoBlock__text}>
+                    {new Date(startStop.lowest).toLocaleDateString('en-GB') !== "Invalid Date" && new Date(startStop.lowest).toLocaleDateString('en-GB') !== "01/01/1970" ? new Date(startStop.lowest).toLocaleDateString('en-GB') : ""}
+                    {new Date(startStop.lowest).toLocaleDateString('en-GB') !== "Invalid Date" && new Date(startStop.lowest).toLocaleDateString('en-GB') !== "01/01/1970" ?  <strong> tot </strong> : ""}
+                    {new Date(startStop.highest).toLocaleDateString('en-GB') !== "Invalid Date" && new Date(startStop.highest).toLocaleDateString('en-GB') !== "01/01/1970" ? (`${new Date(startStop.highest).toLocaleDateString('en-GB')}`) : ""}
+                    </p>
                 : ''}
             </section>
 

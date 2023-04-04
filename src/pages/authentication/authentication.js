@@ -22,7 +22,6 @@ const Authentication = () => {
         setFirstBoot(true)}
    })
 
-   console.log(user)
 
     return (
         <div className={`${style.wrap}`}>
@@ -53,12 +52,10 @@ const Authentication = () => {
                 </nav>
 
                 <Routes>
-                    {console.log('before loggedin')}
                     {!user.loggedIn ?
                             <Route path="*" element={<Login />} /> :
                         <>
                         
-                            {console.log('after loggedin')}
                             <Route path={ROUTES.home} element={<Home />}/>
                             <Route path={ROUTES.detail.path} element={<Detail />}/>
                             <Route path={ROUTES.addEdit.path} element={<AddEdit />}/>

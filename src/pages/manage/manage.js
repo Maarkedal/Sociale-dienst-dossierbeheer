@@ -66,8 +66,6 @@ const Manage = () => {
         
         e.preventDefault();
 
-        console.log(passwordForm.passwordConfirm)
-        console.log(passwordForm.password)
         if(passwordForm.password === passwordForm.passwordConfirm) {
             const res = await resetPassword({
                 password: passwordForm.password,
@@ -75,7 +73,6 @@ const Manage = () => {
                 salt: v4()
             })
             
-            console.log(res)
             if(!res.message)alert('Er is een fout opgetreden')
             else alert('Uw wachtwoord is veranderd')
         }else alert('De wachtwoorden komen niet overeen')
