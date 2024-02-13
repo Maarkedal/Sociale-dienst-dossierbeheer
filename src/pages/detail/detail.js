@@ -89,13 +89,20 @@ const Detail = () => {
                                 <dt className={style.dossierTypes__list__title}>Start datum</dt>
                                 <dd className={style.dossierTypes__list__content}>{new Date(parseInt(item.Type[el][dosInfo].startDatum)).toLocaleDateString('en-GB') ?? ''}</dd>
 
+                                {item.Type[el][dosInfo].eindDatum ? <>
                                 <dt className={style.dossierTypes__list__title}>Eind datum</dt>
                                 <dd className={style.dossierTypes__list__content}>{new Date(parseInt(item.Type[el][dosInfo].eindDatum)).toLocaleDateString('en-GB') ?? ''}</dd>
+                                </>:''}
 
+                                
                                 <dt className={style.dossierTypes__list__title}>Opmerkingen</dt>
                                 <dd className={style.dossierTypes__list__content}>{item.Type[el][dosInfo].opmerkingen ?? ''}</dd>
+
+                                {item.Type[el][dosInfo]?.lopende ? <p className={style.dossierTypes__list__ongoing}>lopende</p> : ''}
+                                {console.log(item.Type[el][dosInfo])}
                             </dl>
                            )
+
                         )
                     )}
                         

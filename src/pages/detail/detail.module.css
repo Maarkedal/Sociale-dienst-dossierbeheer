@@ -194,15 +194,20 @@
 
 
 .dossierTypes__list {
-    padding: 1rem;
-    border: solid 1px white;
-    border-radius: 1rem;
-    width: 25rem;
+    position: relative;
+    padding: 1.5rem;
+    width: 35rem;
+
+    background-color: #007590;
+    color: white;
+    line-height: 1.8rem;
 }
 
 .dossierTypes__list__title {
     font-weight: bold;
     font-size: 1.4rem;
+    
+    margin-bottom: .5rem;
 }
 
 .dossierTypes__list__content {
@@ -214,6 +219,18 @@
 
 .dossierTypes__list__content:last-of-type {
     border-bottom: none;
+}
+
+.dossierTypes__list__ongoing {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #717171;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 

@@ -23,6 +23,7 @@ const Authentication = () => {
    })
 
 
+
     return (
         <div className={`${style.wrap}`}>
                 <nav className={style.navList}>
@@ -30,7 +31,6 @@ const Authentication = () => {
 
                         <div className={style.logo}></div>
 
-                        
                         {user.loggedIn ?
                             <div className={style.logoutWrap}>
                                 <p onClick={logout} className={style.button}>&#9212;</p>
@@ -52,6 +52,7 @@ const Authentication = () => {
                 </nav>
 
                 <Routes>
+
                     {!user.loggedIn ?
                             <Route path="*" element={<Login />} /> :
                         <>

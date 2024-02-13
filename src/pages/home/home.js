@@ -19,6 +19,7 @@ const Home = () => {
         Beschrijving: "",
         eindDatum: "",
         dosTypes: [],
+        lopende: undefined,
     });
 
     const handleChange = async(e) => {
@@ -26,6 +27,8 @@ const Home = () => {
           ...filterData,
           [e.target.name]: e.target.value,
         })
+
+        console.log(filterData)
     };
 
     const handleSelectChange = async e => {
@@ -173,6 +176,22 @@ const Home = () => {
                         <label>Eind datum:
                             <input name="eindDatum" onChange={handleChange} type={"date"} value={filterData.eindDatum} />
                         </label>
+
+
+                        <div className={style.stateFilter}>
+                            
+                        <label>Alle:
+                            <input name="lopende" onChange={handleChange} type={"radio"} value={filterData.lopende} />
+                        </label>
+                            
+                        <label>Lopende:
+                            <input name="lopende" onChange={handleChange} type={"radio"} value={filterData.lopende} />
+                        </label>
+
+                        <label>Afgelopen:
+                            <input name="lopende" onChange={handleChange} type={"radio"} value={filterData.lopende} />
+                        </label>
+                        </div>
                         <p className={`${style.filter__export} hidden`}>Exporteer als XLSX</p>
                                 
                         <span style={{width: "100%"}}></span>
@@ -201,7 +220,7 @@ const Home = () => {
                 <div className="wrap">
                     <section className={style.cards}>
                         {collection.map((collect) => (
-                            <Link key={collect.id} to={`${ROUTES.detail.to}${collect.id}`}>
+                            <Link className={style.card__wrap} key={collect.id} to={`${ROUTES.detail.to}${collect.id}`}>
                             <article className={style.card}>
                             <div className={style.card__intro}>
                                 <p className={style.card__intro__title}>{collect.Client.naam}</p>

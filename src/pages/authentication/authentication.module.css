@@ -16,6 +16,10 @@
 
     display: flex;
     flex-flow: column;
+
+    max-height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
 .navList__items {

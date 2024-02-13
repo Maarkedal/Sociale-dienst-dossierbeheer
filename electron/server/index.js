@@ -14,7 +14,7 @@ app.post("/dossiers", async (req, res) => {
   
   try {
     const queryResponse =  await pool.query(
-      `INSERT INTO dossiers ("Client", "Beheerder", "Type", "Verloop start", "Verloop stop", "Bestandslocatie", "Meer info", "Tijdlijn") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;`,
+      `INSERT INTO dossiers_clone ("Client", "Beheerder", "Type", "Verloop start", "Verloop stop", "Bestandslocatie", "Meer info", "Tijdlijn") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;`,
       [  
         data['Client'] ?? "",
         data['Beheerder'] ?? "",
@@ -42,7 +42,7 @@ app.post("/dossiers/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const queryResponse =  await pool.query(
-      'UPDATE dossiers SET "Client" = $1, "Beheerder" = $2, "Type" = $3, "Bestandslocatie" = $4, "Meer info" = $5, "Tijdlijn" = $6 WHERE "id" = $7 RETURNING *;',
+      'UPDATE dossiers_clone SET "Client" = $1, "Beheerder" = $2, "Type" = $3, "Bestandslocatie" = $4, "Meer info" = $5, "Tijdlijn" = $6 WHERE "id" = $7 RETURNING *;',
       [  
         data.Client ?? "",
         data.Beheerder ?? "",
@@ -78,7 +78,7 @@ app.post("/dossiertypes", async (req, res) => {
 
 app.get("/dossiers", async (req, res) => {
   try {
-    const allData = await pool.query("SELECT * FROM dossiers;");
+    const allData = await pool.query("SELECT * FROM dossiers_clone;");
     res.json(await encrypt(JSON.stringify(allData.rows)));
   } catch (err) {
     console.error(err.message);
@@ -98,7 +98,7 @@ app.get("/dossiertypes", async (req, res) => {
 app.get("/dossiers/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query("SELECT * FROM dossiers WHERE id = $1;", [
+    const todo = await pool.query("SELECT * FROM dossiers_clone WHERE id = $1;", [
       id
     ]);
 
@@ -131,7 +131,7 @@ app.delete("/dossiers/:id", async (req, res) => {
   try {
     const id = await decrypt(req.body.toDelete);
     const deleteDos = await pool.query(
-      `DELETE FROM dossiers WHERE id = $1`,
+      `DELETE FROM dossiers_clone WHERE id = $1`,
       [  
         id
       ]

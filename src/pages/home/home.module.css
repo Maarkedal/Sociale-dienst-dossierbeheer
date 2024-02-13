@@ -11,21 +11,16 @@
 
 .filterWrap {
   background-color: #92DAE6;
-  padding: 5rem;
+  padding: 1.3rem 0 0;
 }
 
 .filter {
   display: flex;
   flex-flow: row wrap;
   gap: 2rem;
-
   padding: 2rem;
-
-  border: solid white .1rem;
-  border-radius: .4rem;
-
+  border-top: solid white .1rem;
   position: relative;
-  
 }
 
 .filterWrap h2 {
@@ -78,6 +73,10 @@
 
 .filter input:focus, .filter select:focus {
   outline-color: var(--primaryColor);
+}
+
+.stateFilter {
+  
 }
 
 .checkmark {
@@ -238,6 +237,11 @@ a {
   color: inherit;
 }
 
+.card__wrap {
+  width: 100%;
+  max-width: 20rem;
+}
+
 .card {
   width: 100%;
   max-width: 20rem;
@@ -251,7 +255,7 @@ a {
   border-radius: .2rem;
   cursor: pointer;
   border-radius: .3rem;
-  border: solid .5rem var(--primaryColorLight);
+  /*border: solid .5rem var(--primaryColorLight);*/
   transition: border .3s ease;
 }
 
@@ -270,7 +274,8 @@ a {
   font-size: 2.2rem;
 }
 
-.card__intro__type {
+.card__intro__type {    
+  word-break: break-word;
   font-style: italic;
   font-size: 1.4rem;
 
