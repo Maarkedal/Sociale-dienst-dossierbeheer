@@ -19,16 +19,16 @@ const Home = () => {
         Beschrijving: "",
         eindDatum: "",
         dosTypes: [],
-        lopende: undefined,
+        lopende: false,
     });
 
     const handleChange = async(e) => {
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+
         setFilterData({
           ...filterData,
-          [e.target.name]: e.target.value,
+          [e.target.name]: value,
         })
-
-        console.log(filterData)
     };
 
     const handleSelectChange = async e => {
@@ -46,39 +46,46 @@ const Home = () => {
     }
 
     const filter = () => {
+        let tempArray = globalData.filter((el) => {
+            const dStart = new Date(el.lowestDate);
+            const dEnd = new Date(el.highestDate);
+    
 
-        let tempArray = globalData;
-        tempArray = tempArray.filter((el) => {
-            let tempStartDate = el["Verloop start"].split('/');
-            let tempEndDate = el["Verloop stop"].split('/');
-            const dStart = new Date(`${tempStartDate[2]}-${tempStartDate[1]}-${tempStartDate[0]}`);
-            const dEnd = new Date(`${tempEndDate[2]}-${tempEndDate[1]}-${tempEndDate[0]}`);
+            console.log(dStart)
+            console.log(dEnd)
 
-            let dosTypesFiltered = Object.keys(filterData.dosTypes).filter((dosType) => { 
-                        
-                if(el.Type[dosType]){
-                    const res = Object.keys(el.Type[dosType]).filter(
-                        (key) => {
-                            return el.Type[dosType][key].startDatum >= filterData.dosTypes[dosType].start &&
-                                   el.Type[dosType][key].eindDatum <= filterData.dosTypes[dosType].end
-                        }
-                    )
-                    return res.length > 0
-                }
-                else return false;
-             })
-
-            if (Object.keys(filterData.dosTypes).length === 0) dosTypesFiltered = [true]
-            return  el['Beheerder'].toLowerCase().includes(filterData.Beheerder.toLowerCase()) &&
-                    el['Meer info'].toLowerCase().includes(filterData.Beschrijving.toLowerCase()) &&
-                    el.Client.naam.toLowerCase().includes(filterData.Client.toLowerCase()) &&
-                    (filterData.eindDatum ? dEnd <= new Date(filterData.eindDatum) : true) &&
-                    (filterData.startDatum ? dStart >= new Date(filterData.startDatum) : true) &&
-                    (dosTypesFiltered.length > 0)
-                    
+            // Check if dosTypesFiltered and lopende meet criteria
+            let meetsCriteria = true;
+    
+            if (filterData.lopende) {
+                meetsCriteria = Object.keys(el.Type).some(typ => el.Type[typ].some(item => item.lopende));
+            }
+    
+            if (meetsCriteria && Object.keys(filterData.dosTypes).length > 0) {
+                meetsCriteria = Object.keys(filterData.dosTypes).some(dosType => {
+                    if (el.Type[dosType]) {
+                        return Object.keys(el.Type[dosType]).some(key =>
+                            el.Type[dosType][key].startDatum >= filterData.dosTypes[dosType].start &&
+                            el.Type[dosType][key].eindDatum <= filterData.dosTypes[dosType].end
+                        );
+                    } else {
+                        return false;
+                    }
+                });
+            }
+    
+            // Apply filters
+            return el['Beheerder'].toLowerCase().includes(filterData.Beheerder.toLowerCase()) &&
+                el['Meer info'].toLowerCase().includes(filterData.Beschrijving.toLowerCase()) &&
+                el.Client.naam.toLowerCase().includes(filterData.Client.toLowerCase()) &&
+                (!filterData.startDatum || dStart >= new Date(filterData.startDatum)) &&
+                (!filterData.eindDatum || dEnd <= new Date(filterData.eindDatum)) &&
+                meetsCriteria;
         });
-        setCollection(tempArray)
-    }
+    
+        setCollection(tempArray);
+    };
+    
 
     useEffect(() => {
         setActivePage("Home");
@@ -178,20 +185,10 @@ const Home = () => {
                         </label>
 
 
-                        <div className={style.stateFilter}>
-                            
-                        <label>Alle:
-                            <input name="lopende" onChange={handleChange} type={"radio"} value={filterData.lopende} />
-                        </label>
-                            
                         <label>Lopende:
-                            <input name="lopende" onChange={handleChange} type={"radio"} value={filterData.lopende} />
+                            <input className={style.filter__checkbox} name="lopende" onChange={handleChange} type={"checkbox"} checked={filterData.lopende ? 'checked' : ''} value={!filterData.lopende} />
                         </label>
-
-                        <label>Afgelopen:
-                            <input name="lopende" onChange={handleChange} type={"radio"} value={filterData.lopende} />
-                        </label>
-                        </div>
+                        
                         <p className={`${style.filter__export} hidden`}>Exporteer als XLSX</p>
                                 
                         <span style={{width: "100%"}}></span>

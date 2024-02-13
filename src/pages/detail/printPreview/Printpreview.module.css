@@ -85,6 +85,18 @@ h1 {
     margin: 5rem 0 15rem;
 }
 
+.dossierTypes__list__ongoing {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #717171;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 .timeline_line {
 
     position: absolute;
@@ -203,7 +215,7 @@ h1 {
     padding: 1rem;
     border: solid 1px white;
     border-radius: 1rem;
-    width: calc(33% - 3rem);
+    width: calc(40% - 2rem);
 }
 
 .dossierTypes__list__title {

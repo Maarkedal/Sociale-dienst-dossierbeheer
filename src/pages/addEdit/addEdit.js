@@ -179,7 +179,21 @@ const AddEdit = () => {
                 }
 
                 {action === "edit" ?
-                    <Link to={`${ROUTES.detail.to}${id}`} className={style.return}><span>←</span> Terug</Link>
+                    <Link to={`${ROUTES.detail.to}${id}`} className={style.return}>
+                    <svg height="20px" width="20px" version="1.1" id="Capa_1"
+                        viewBox="0 0 32.002 32.002">
+                    <g>
+                        <g id="undo">
+                            <g>
+                                <path style={{fill:'#030104'}}  d="M28.157,3.719c-4.957-4.957-13.605-4.961-18.559,0L4.001,9.32V4h-4v12.007h12v-3.92H6.978
+                                    l5.453-5.537c3.445-3.449,9.453-3.449,12.898,0.004c1.723,1.723,2.672,4.012,2.672,6.534c0,2.357-0.949,4.646-2.672,6.373
+                                    l-3.016,3.014l2.828,2.828l3.016-3.008c2.477-2.486,3.844-5.783,3.844-9.207C32.001,9.496,30.634,6.199,28.157,3.719z"/>
+                                <polygon style={{fill:'#030104'}} points="18.45,32.002 15.622,29.166 18.45,26.338 21.278,29.166 			"/>
+                            </g>
+                        </g>
+                    </g>
+                    </svg>
+                    Terug</Link>
                     :
                     ''
                 }
@@ -239,8 +253,8 @@ const AddEdit = () => {
 
 
                                 <dt className={style.dossierTypes__list__title}>Lopende</dt>
-                                <dd className={style.dossierTypes__list__content}><input type={"checkbox"} checked={dostypes[el][dosInfo]?.lopende ? 'checked' : ''} name="lopende" onChange={(e) => handleDostype(el, dosInfo, e)} /></dd>
-
+                                <dd className={style.dossierTypes__list__content}><input type={"checkbox"} className={style.dossierTypes__list__content__ongoing} checked={dostypes[el][dosInfo]?.lopende ? 'checked' : ''} name="lopende" onChange={(e) => handleDostype(el, dosInfo, e)} /></dd>
+                               
 
                                 <dt className={style.dossierTypes__list__title}>Opmerkingen</dt>
                                 <dd className={style.dossierTypes__list__content}><textarea value={dostypes[el][dosInfo].opmerkingen} name="opmerkingen" onChange={(e) => handleDostype(el, dosInfo, e)} /></dd>

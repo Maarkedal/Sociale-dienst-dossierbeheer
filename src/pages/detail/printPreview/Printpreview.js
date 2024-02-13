@@ -46,6 +46,15 @@ export class ComponentToPrint extends React.PureComponent {
                                 <dt className={style.dossierTypes__list__title}>Type</dt>
                                 <dd className={style.dossierTypes__list__content}>{el}</dd>
 
+                                
+                                {data.Type[el][dosInfo]?.lopende ? 
+
+                                <>
+                                <dt className={style.dossierTypes__list__title}>Status</dt>
+                                <dd className={style.dossierTypes__list__content}>lopende</dd>
+                                </>
+                                : ''}
+
                                 <dt className={style.dossierTypes__list__title}>Start datum</dt>
                                 <dd className={style.dossierTypes__list__content}>{new Date(parseInt(data.Type[el][dosInfo].startDatum)).toLocaleDateString('en-GB') ?? ''}</dd>
 
@@ -54,6 +63,8 @@ export class ComponentToPrint extends React.PureComponent {
 
                                 <dt className={style.dossierTypes__list__title}>Opmerkingen</dt>
                                 <dd className={style.dossierTypes__list__content}>{data.Type[el][dosInfo].opmerkingen ?? ''}</dd>
+
+                                
                             </dl>
                            )
                         )

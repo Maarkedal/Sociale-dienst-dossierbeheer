@@ -10,7 +10,7 @@
 }
 
 .filterWrap {
-  background-color: #92DAE6;
+  background-color: #007590;
   padding: 1.3rem 0 0;
 }
 
@@ -27,7 +27,7 @@
   top: -2rem;
   left: 1rem;
   padding: 1rem;
-  background-color: #92DAE6;
+  background-color: #007590;
   display: flex;
   max-width: 12rem;
   text-align: center;
@@ -76,7 +76,33 @@
 }
 
 .stateFilter {
-  
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.stateFilter__title {
+  width: 100%;
+}
+
+.stateFilter label {
+  border-right: solid 1px white;
+
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.stateFilter input {
+  font-size: 1.5rem;
+  border-right: solid 1px white;
+  margin: 1rem .5rem;
+  width: fit-content;
+  padding: 0 2rem;
+
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .checkmark {
@@ -251,7 +277,7 @@ a {
   display: flex;
   flex-flow: column;
 
-  background-color: #92DAE6;
+  background-color: #007590;
   border-radius: .2rem;
   cursor: pointer;
   border-radius: .3rem;
@@ -355,4 +381,52 @@ a {
   border-top-right-radius: .4rem;
 
   cursor: pointer;
+}
+
+
+.filter__checkbox[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  /* Not removed via appearance */
+  margin: .5rem 1rem;
+
+  font: inherit;
+  color: currentColor;
+  width: 3rem;
+  height: 3rem;
+  border: 0.15em solid white;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+.filter__checkbox[type="checkbox"]::before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1.5rem 1.5rem white;
+  /* Windows High Contrast Mode */
+}
+
+.filter__checkbox[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.filter__checkbox[type="checkbox"]:focus {
+  outline-offset: max(2px, 0.15em);
+}
+
+.filter__checkbox[type="checkbox"]:disabled {
+
+  color: red;
+  cursor: not-allowed;
 }

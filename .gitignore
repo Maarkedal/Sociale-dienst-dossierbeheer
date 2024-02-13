@@ -4,6 +4,7 @@
 **/db.js
 
 /node_modules
+/node_modules dawdaw
 /.pnp
 .pnp.js
 /server/node_modules

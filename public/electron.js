@@ -14,6 +14,21 @@ function createWindow() {
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   
   mainWindow.on('closed', () => mainWindow = null);
+
+  const contextMenu = electron.Menu.buildFromTemplate([
+    { label: 'Cut', role: 'cut' },
+    { label: 'Copy', role: 'copy' },
+    { label: 'Paste', role: 'paste' },
+    { type: 'separator' },
+    { label: 'Select All', role: 'selectall' }
+  ]);
+
+  // Attach context menu to window
+  mainWindow.webContents.on('context-menu', (e, params) => {
+    contextMenu.popup(mainWindow, params.x, params.y);
+  });
+
+
 }
 
 app.on('ready', createWindow);

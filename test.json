@@ -1,0 +1,38 @@
+{
+    "id": 37,
+    "Client": {
+        "adres": "Rue de lavie ",
+        "land": "Nederland",
+        "mail": "",
+        "naam": "Nicolaj tjarcov",
+        "phone": "",
+        "postcode": "4144",
+        "stad": "Whihoeve"
+    },
+    "Beheerder": "Patsy Larno",
+    "Type": {
+        "Uithuiszetting/dakloosheid/referentieadres": [
+            {
+                "startDatum": 1685923200000,
+                "eindDatum": null,
+                "opmerkingen": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tempus commodo viverra. Aliquam sollicitudin est ac interdum vehicula. Cras accumsan finibus libero, fermentum pretium metus convallis in. Vivamus ultricies volutpat nunc, id commodo lorem pellentesque eget. Vivamus gravida leo eget rutrum bibendum. Etiam ut tortor nunc. Ut accumsan leo elit, id aliquam massa elementum ac. Curabitur venenatis ligula lacus, ac rutrum diam consectetur non. Donec euismod eget mi a accumsan. In at quam imperdiet sem blandit porttitor ac id turpis. Sed sit amet eros vel tortor suscipit iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;",
+                "lopende": true
+            }
+        ],
+        "dakloosheid": [
+            {
+                "startDatum": 1685923200000,
+                "eindDatum": 1684923200000,
+                "opmerkingen": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tempus commodo viverra. Aliquam sollicitudin est ac interdum vehicula. Cras accumsan finibus libero, fermentum pretium metus convallis in. Vivamus ultricies volutpat nunc, id commodo lorem pellentesque eget. Vivamus gravida leo eget rutrum bibendum. Etiam ut tortor nunc. Ut accumsan leo elit, id aliquam massa elementum ac. Curabitur venenatis ligula lacus, ac rutrum diam consectetur non. Donec euismod eget mi a accumsan. In at quam imperdiet sem blandit porttitor ac id turpis. Sed sit amet eros vel tortor suscipit iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;",
+                "lopende": true
+            }
+        ]
+    },
+    "Verloop start": "",
+    "Verloop stop": "",
+    "Bestandslocatie": "",
+    "Meer info": "Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tempus commodo viverra. Aliquam sollicitudin est ac interdum vehicula. Cras accumsan finibus libero, fermentum pretium metus convallis in. Vivamus ultricies volutpat nunc, id commodo lorem pellentesque eget. Vivamus gravida leo eget rutrum bibendum. Etiam ut tortor nunc. Ut accumsan leo elit, id aliquam massa elementum ac. Curabitur venenatis ligula lacus, ac rutrum diam consectetur non. Donec euismod eget mi a accumsan. In at quam imperdiet sem blandit porttitor ac id turpis. Sed sit amet eros vel tortor suscipit iaculis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
+    "Tijdlijn": [],
+    "lowestDate": 1685923200000,
+    "highestDate": 1685923200000
+}

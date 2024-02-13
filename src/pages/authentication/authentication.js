@@ -49,6 +49,7 @@ const Authentication = () => {
                     
                     </ul>
 
+                    <p className={style.versionNumber}>V0.0.8</p>
                 </nav>
 
                 <Routes>
